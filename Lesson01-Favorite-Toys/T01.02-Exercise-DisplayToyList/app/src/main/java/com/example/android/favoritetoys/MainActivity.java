@@ -21,7 +21,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView mToysListTextView;
+    private TextView mToysListTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mToysListTextView = (TextView)findViewById(R.id.tv_toy_names);
-        // TODO (4) Use the static ToyBox.getToyNames method and store the names in a String array
         String[] toyNames = ToyBox.getToyNames();
-        // TODO (5) Loop through each toy and append the name to the TextView (add \n for spacing)
         for(String toyName : toyNames){
             mToysListTextView.append(toyName + "\n\n\n");
         }
