@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // TODO (29) Use findViewById to get a reference to mSearchBoxEditText
 
         // TODO (30) Use findViewById to get a reference to mUrlDisplayTextView
