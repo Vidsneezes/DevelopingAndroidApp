@@ -90,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO (26) Override onPreExecute to set the loading indicator to visible
 
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mLoadingIndicatorProgressBar.setVisibility(View.VISIBLE);
+        }
+
         @Override
         protected String doInBackground(URL... params) {
             URL searchUrl = params[0];
@@ -105,11 +112,16 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String githubSearchResults) {
             // TODO (27) As soon as the loading is complete, hide the loading indicator
+            mLoadingIndicatorProgressBar.setVisibility(View.INVISIBLE);
             if (githubSearchResults != null && !githubSearchResults.equals("")) {
                 // TODO (17) Call showJsonDataView if we have valid, non-null results
+                showJsonDataView();
                 mSearchResultsTextView.setText(githubSearchResults);
+            }else{
+                showErrorMessage();
             }
             // TODO (16) Call showErrorMessage if the result is null in onPostExecute
+
         }
     }
 
